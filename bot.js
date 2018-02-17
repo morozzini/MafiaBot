@@ -193,13 +193,13 @@ client.on('message', message => {
                     Game.main.Spectators = new Map();
                     Game.main.Players = new Map();
 
-                    //if(message.member.voiceChannel.members.size > 1){
+                    if(message.member.voiceChannel.members.size > 1){
                         for(let [key,value] of message.member.voiceChannel.members){
-                            //if(key != Game.main.Master.id){
+                            if(key != Game.main.Master.id){
                                 Game.main.Players.set(key,value);
-                            //}
+                            }
                         }
-                    //}
+                    }
                     if(Game.main.Players.size == 0){
                         Game.Clear();
                         message.channel.send(`${random_NO()}. ${answer_ERR_NOPLAYERS}`);
